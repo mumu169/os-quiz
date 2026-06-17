@@ -696,8 +696,8 @@ function rdF(){
     html+='<div style="font-size:14px;margin-bottom:8px;line-height:1.7">'+q[0].replace(/____/g,'<b style="color:#1a73e8">______</b>')+'</div>';
     html+='<div class="fib">';
     for(var j=0;j<q[1].length;j++){
-      var v=(st[k]&&st[k].a&&st[k].a[j])||'';
-      var cls=st[k]?(st[k].a[j]===q[1][j]?'ok':'no'):'';
+      var v='';
+      var cls=st[k]?(st[k]===1?'ok':'no'):'';
       html+='<input type="text" id="fi'+i+'_'+j+'" value="'+v+'" placeholder="答案'+(j+1)+'" class="'+cls+'" '+(st[k]?'disabled':'')+'>';
     }
     html+='</div>';
@@ -723,7 +723,6 @@ function ckAllF(){
       inp.className=cor?'ok':'no';inp.disabled=true;
       if(!cor){ok=false;}
     }
-    st[k]={a:a};
     st[k]=ok?1:-1;
     if(st[k]===-1)addWrong(i,'f');
   });
